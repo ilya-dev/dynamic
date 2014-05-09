@@ -1,6 +1,7 @@
 <?php namespace Spec\Dynamic;
 
 use PhpSpec\ObjectBehavior;
+use Dynamic\Dynamic;
 
 class DynamicTraitTestSpec extends ObjectBehavior {
 
@@ -15,6 +16,13 @@ class DynamicTraitTestSpec extends ObjectBehavior {
 
         $instance->shouldHaveType('Dynamic\Dynamic');
         $instance->shouldBeEqualTo($this->getDynamicInstance());
+    }
+
+    function it_sets_instance_of_Dynamic(Dynamic $instance)
+    {
+        $this->setDynamicInstance($instance);
+
+        $this->getDynamicInstance()->shouldBeEqualTo($instance);
     }
 
 }

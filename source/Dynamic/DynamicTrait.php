@@ -25,6 +25,17 @@ trait DynamicTrait {
     }
 
     /**
+     * Set instance of Dynamic.
+     *
+     * @param Dynamic $instance
+     * @return void
+     */
+    public function setDynamicInstance(Dynamic $instance)
+    {
+        $this->dynamicInstance = $instance;
+    }
+
+    /**
      * Handle calls to non-existent methods.
      *
      * @param string $method
