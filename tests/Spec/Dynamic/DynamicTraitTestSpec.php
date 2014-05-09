@@ -1,6 +1,7 @@
 <?php namespace Spec\Dynamic;
 
 use PhpSpec\ObjectBehavior;
+use Prophecy\Argument;
 use Dynamic\Dynamic;
 
 class DynamicTraitTestSpec extends ObjectBehavior {
@@ -23,6 +24,16 @@ class DynamicTraitTestSpec extends ObjectBehavior {
         $this->setDynamicInstance($instance);
 
         $this->getDynamicInstance()->shouldBeEqualTo($instance);
+    }
+
+    function it_redirects_method_calls_to_instance(Dynamic $instance)
+    {
+        $instance->handle(Argument::type('Dynamic\DynamicTraitTest'), 'foo', ['bar'])
+                 ->shouldBeCalled();
+
+        $this->setDynamicInstance($instance);
+
+        $this->getWrappedObject()->foo('bar');
     }
 
 }
