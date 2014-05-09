@@ -1,0 +1,9 @@
+formatter.name: pretty
+
+suites:
+    dynamic_suite:
+        namespace: Dynamic
+        src_path: source
+        spec_path: tests
+        spec_prefix: Spec
+        
