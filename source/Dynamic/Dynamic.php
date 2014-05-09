@@ -3,6 +3,18 @@
 class Dynamic {
 
     /**
+     * Redirect all calls matching $pattern to $method.
+     *
+     * @param string $pattern
+     * @param string $method
+     * @return void
+     */
+    public function redirect($pattern, $method)
+    {
+
+    }
+
+    /**
      * Handle method calls.
      *
      * @param mixed $instance
