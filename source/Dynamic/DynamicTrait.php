@@ -2,7 +2,10 @@
 
 trait DynamicTrait {
 
+    public function getDynamicInstance()
+    {
 
+    }
 
 }
 
