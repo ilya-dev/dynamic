@@ -24,5 +24,17 @@ trait DynamicTrait {
         return $this->dynamicInstance;
     }
 
+    /**
+     * Handle calls to non-existent methods.
+     *
+     * @param string $method
+     * @param array $arguments
+     * @return mixed
+     */
+    public function __call($method, array $arguments)
+    {
+        return $this->getDynamicInstance()->handle($this, $method, $arguments);
+    }
+
 }
 
