@@ -48,6 +48,12 @@ Don't forget to add `Dynamic\DynamicTrait` trait to your class.
 + `void redirect(string $pattern, string $method)`
 + `mixed handle(mixed $instance, string $method, array $arguments = [])`
 
+## Installation
+
+```shell
+php composer.phar require "ilya/dynamic:~1"
+```
+
 ## License
 
 Dynamic is licensed under the MIT license.
