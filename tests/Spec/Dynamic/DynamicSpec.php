@@ -18,13 +18,20 @@ class DynamicSpec extends ObjectBehavior {
         $this->getAllPaths()->shouldHaveCount(1);
     }
 
+    function it_handles_a_call()
+    {
+        $this->redirect('/^get(\w+)$/', 'get');
+
+        $this->handle(new Dummy, 'getJack', [42])->shouldBe('Jack is 42');
+    }
+
 }
 
 class Dummy {
 
-    public function get($name)
+    public function get($name, $age)
     {
-        return $name;
+        return "$name is $age";
     }
 
 }
