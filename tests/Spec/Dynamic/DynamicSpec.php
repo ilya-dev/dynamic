@@ -38,7 +38,7 @@ class DynamicSpec extends ObjectBehavior {
     {
         $this->redirect('/^get(\w+)$/', 'get');
 
-        $this->handle(new Dummy, 'getJack', [42])->shouldBe('Jack is 42');
+        $this->handle(new Dummy, 'getJack', [42])->shouldBe('jack is 42');
     }
 
 }

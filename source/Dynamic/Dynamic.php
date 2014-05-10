@@ -81,7 +81,10 @@ class Dynamic {
      */
     public function handle($instance, $method, array $arguments = [])
     {
+        $arguments = array_merge($this->getArguments($method), $arguments);
+        $method    = $this->getMethod($method);
 
+        return call_user_func_array([$instance, $method], $arguments);
     }
 
 }
