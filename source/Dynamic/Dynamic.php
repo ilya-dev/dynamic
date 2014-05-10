@@ -42,7 +42,17 @@ class Dynamic {
      */
     public function getMethod($name)
     {
+        foreach ($this->paths as $pattern => $method)
+        {
+            if (preg_match($pattern, $name))
+            {
+                return $method;
+            }
+        }
 
+        throw new UnexpectedValueException(
+            "Method {$name} does not match any pattern."
+        );
     }
 
     /**
