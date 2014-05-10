@@ -3,6 +3,13 @@
 class Dynamic {
 
     /**
+     * The paths.
+     *
+     * @var array
+     */
+    protected $paths = [];
+
+    /**
      * Redirect all calls matching $pattern to $method.
      *
      * @param string $pattern
@@ -11,7 +18,17 @@ class Dynamic {
      */
     public function redirect($pattern, $method)
     {
+        $this->paths[$pattern] = $method;
+    }
 
+    /**
+     * Get all paths added.
+     *
+     * @return array
+     */
+    public function getAllPaths()
+    {
+        return $this->paths;
     }
 
     /**

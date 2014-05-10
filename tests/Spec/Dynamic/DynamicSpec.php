@@ -9,5 +9,14 @@ class DynamicSpec extends ObjectBehavior {
         $this->shouldHaveType('Dynamic\Dynamic');
     }
 
+    function it_adds_a_new_path()
+    {
+        $this->getAllPaths()->shouldHaveCount(0);
+
+        $this->redirect('/^get(\w+)$/', 'get');
+
+        $this->getAllPaths()->shouldHaveCount(1);
+    }
+
 }
 
