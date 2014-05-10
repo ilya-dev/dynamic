@@ -20,3 +20,12 @@ class DynamicSpec extends ObjectBehavior {
 
 }
 
+class Dummy {
+
+    public function get($name)
+    {
+        return $name;
+    }
+
+}
+
