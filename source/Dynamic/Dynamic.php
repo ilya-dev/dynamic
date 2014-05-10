@@ -1,5 +1,7 @@
 <?php namespace Dynamic;
 
+use UnexpectedValueException;
+
 class Dynamic {
 
     /**
@@ -29,6 +31,18 @@ class Dynamic {
     public function getAllPaths()
     {
         return $this->paths;
+    }
+
+    /**
+     * Get method name matching pattern.
+     *
+     * @throws UnexpectedValueException
+     * @param string $name
+     * @return string
+     */
+    public function getMethod($name)
+    {
+
     }
 
     /**

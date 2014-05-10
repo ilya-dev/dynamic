@@ -18,6 +18,15 @@ class DynamicSpec extends ObjectBehavior {
         $this->getAllPaths()->shouldHaveCount(1);
     }
 
+    function it_returns_method_name_matching_pattern()
+    {
+        $this->redirect('/^get(\w+)$/', 'get');
+
+        $this->getMethod('getJack')->shouldReturn('get');
+
+        $this->shouldThrow('UnexpectedValueException')->duringGetMethod('agdgag');
+    }
+
     function it_handles_a_call()
     {
         $this->redirect('/^get(\w+)$/', 'get');
