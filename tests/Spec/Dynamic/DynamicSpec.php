@@ -27,6 +27,13 @@ class DynamicSpec extends ObjectBehavior {
         $this->shouldThrow('UnexpectedValueException')->duringGetMethod('agdgag');
     }
 
+    function it_extracts_list_of_arguments_from_method_name()
+    {
+        $this->redirect('/^get(\w+)$/', 'get');
+
+        $this->getArguments('getJack')->shouldBe(['jack']);
+    }
+
     function it_handles_a_call()
     {
         $this->redirect('/^get(\w+)$/', 'get');

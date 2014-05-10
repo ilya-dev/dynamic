@@ -44,7 +44,7 @@ class Dynamic {
     {
         foreach ($this->paths as $pattern => $method)
         {
-            if (preg_match($pattern, $name))
+            if (preg_match_all($pattern, $name))
             {
                 return $method;
             }
@@ -53,6 +53,22 @@ class Dynamic {
         throw new UnexpectedValueException(
             "Method {$name} does not match any pattern."
         );
+    }
+
+    /**
+     * Extract list of arguments from method name.
+     *
+     * @param string $method
+     * @return array
+     */
+    public function getArguments($method)
+    {
+        $pattern  = array_search($this->getMethod($method), $this->paths);
+        $elements = [];
+
+        preg_match_all($pattern, $method, $elements);
+
+        return array_map('strtolower', $elements[1]);
     }
 
     /**
